@@ -8,7 +8,11 @@
     </head>
     <body>
         <header class="bg-gray-800 text-white p-4">
-            <h1 class="text-3xl font-bold p-2">Contact Management Web App</h1>
+            <h1 class="text-3xl font-bold p-2 cursor-pointer hover:text-gray-100">
+                <a href="{{ route('home') }}">
+                    Contact Management Web App
+                </a>
+            </h1>
         </header>
         @yield('content')
         <script src="https://kit.fontawesome.com/a184b40f21.js" crossorigin="anonymous"></script>
