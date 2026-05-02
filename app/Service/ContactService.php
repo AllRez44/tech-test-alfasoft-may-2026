@@ -23,7 +23,7 @@ class ContactService
 
     public static function store(StoreContactRequest $request): Contact
     {
-        $validated = $request->validate();
+        $validated = $request->validated();
         return Contact::create($validated);
     }
 
@@ -33,7 +33,7 @@ class ContactService
     public static function update(StoreContactRequest $request, int $id): Contact
     {
         $contact = self::find($id);
-        $validated = $request->validate();
+        $validated = $request->validated();
         $contact->update($validated);
         return $contact;
     }
