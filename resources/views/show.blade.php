@@ -19,6 +19,14 @@
                         <span>Edit</span>
                     </div>
                 </a>
+                <form action="{{ route('contacts.destroy', $contact->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this contact?');">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="bg-red-500 hover:bg-red-700 text-white px-3 py-1.5 rounded focus:outline-none focus:shadow-outline flex items-center space-x-2">
+                        <i class="fa-solid fa-trash"></i>
+                        <span>Delete</span>
+                    </button>
+                </form>
             </div>
         </div>
 
