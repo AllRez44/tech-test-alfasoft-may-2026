@@ -16,9 +16,12 @@ class ContactService
         return Contact::all()->all();
     }
 
+    /**
+     * @throws \Exception
+     */
     public static function show(int $id): ?Contact
     {
-        return Contact::find($id);
+        return self::find($id);
     }
 
     public static function store(StoreContactRequest $request): Contact
@@ -28,7 +31,7 @@ class ContactService
     }
 
     /**
-     * @throws \HttpException
+     * @throws \Exception
      */
     public static function update(StoreContactRequest $request, int $id): Contact
     {
@@ -45,13 +48,13 @@ class ContactService
     }
 
     /**
-     * @throws \HttpException
+     * @throws \Exception
      */
     protected static function find(int $id): Contact
     {
         $contact = Contact::find($id);
         if (!$contact) {
-            throw new \HttpException('Contact not found');
+            throw new \Exception('Contact not found');
         }
         return $contact;
     }

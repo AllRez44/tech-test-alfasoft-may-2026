@@ -29,14 +29,22 @@ class ContactController extends Controller
 
     public function show(int $id)
     {
-        $contact = ContactService::show($id);
-        return view('show', compact('contact'));
+        try {
+            $contact = ContactService::show($id);
+            return view('show', compact('contact'));
+        } catch (\Exception) {
+            return redirect()->route('home')->with('error', 'Contact not found.');
+        }
     }
 
     public function updateView(int $id)
     {
-        $contact = ContactService::show($id);
-        return view('edit', compact('contact'));
+        try {
+            $contact = ContactService::show($id);
+            return view('edit', compact('contact'));
+        } catch (\Exception) {
+            return redirect()->route('home')->with('error', 'Contact not found.');
+        }
     }
 
     public function update(StoreContactRequest $request, int $id)
