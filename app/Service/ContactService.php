@@ -47,7 +47,7 @@ class ContactService
     /**
      * @throws \HttpException
      */
-    protected static function find(int $id): ?Contact
+    protected static function find(int $id): Contact
     {
         $contact = Contact::find($id);
         if (!$contact) {
